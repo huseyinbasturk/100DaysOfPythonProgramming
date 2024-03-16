@@ -10,6 +10,7 @@ try:
     data = pandas.read_csv("data/words_to_learn.csv")
 except:
     original_data = pandas.read_csv("data/german_words.csv")
+    #original_data = pandas.read_csv("data/turkish_words.csv")
     to_learn = original_data.to_dict(orient="records")
 else:
     to_learn = data.to_dict(orient="records")
@@ -27,7 +28,11 @@ def next_card():
 
 def flip_card():
     canvas.itemconfig(card_title, text="English", fill="white")
+    #canvas.itemconfig(card_title, text="Turkish", fill="white")
+
     canvas.itemconfig(card_word, text=current_card["English"])
+    #canvas.itemconfig(card_word, text=current_card["Turkish"])
+
     canvas.itemconfig(card_background, image=card_back_img)
 
 def is_known():
